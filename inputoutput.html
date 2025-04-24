@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Input/Output in Programming Languages</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .lang-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 800px;
+    }
+    .lang-card h2 {
+      color: #007acc;
+      margin-top: 0;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 10px;
+      overflow-x: auto;
+      border-left: 5px solid #007acc;
+    }
+    code {
+      font-family: 'Courier New', Courier, monospace;
+    }
+    .output {
+      background: #e8ffe8;
+      padding: 10px;
+      border-left: 5px solid #28a745;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Input/Output in Programming Languages</h1>
+
+  <div class="lang-card">
+    <h2>JAVA</h2>
+    <h3>Input</h3>
+    <pre><code>
+import java.util.Scanner;
+
+public class InputOutputExample {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter your name: ");
+        String name = scanner.nextLine();
+
+        int age = 0;
+        while (true) {
+            System.out.print("Enter your age: ");
+            if (scanner.hasNextInt()) {
+                age = scanner.nextInt();
+                break;
+            } else {
+                System.out.println("Please enter a valid integer for age.");
+                scanner.next(); // clear the invalid input
+            }
+        }
+
+        System.out.println("Hello, " + name + "! You are " + age + " years old.");
+        scanner.close();
+    }
+}
+    </code></pre>
+    <h3>Output</h3>
+    <div class="output">
+      Enter your name: Alice<br>
+      Enter your age: twenty<br>
+      Please enter a valid integer for age.<br>
+      Enter your age: 25<br>
+      Hello, Alice! You are 25 years old.
+    </div>
+  </div>
+
+  <div class="lang-card">
+    <h2>PYTHON</h2>
+    <h3>Input</h3>
+    <pre><code>
+name = input("Enter your name: ")
+
+while True:
+    age_input = input("Enter your age: ")
+    if age_input.isdigit():
+        age = int(age_input)
+        break
+    else:
+        print("Please enter a valid integer for age.")
+
+print(f"Hello, {name}! You are {age} years old.")
+    </code></pre>
+    <h3>Output</h3>
+    <div class="output">
+      Enter your name: Alice<br>
+      Enter your age: twenty<br>
+      Please enter a valid integer for age.<br>
+      Enter your age: 25<br>
+      Hello, Alice! You are 25 years old.
+    </div>
+  </div>
+
+  <div class="lang-card">
+    <h2>C Language</h2>
+    <h3>Input</h3>
+    <pre><code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    char name[50];
+    int age;
+
+    printf("Enter your name: ");
+    fgets(name, sizeof(name), stdin);
+
+    printf("Enter your age: ");
+    scanf("%d", &age);
+
+    printf("Hello, %sYou are %d years old.\n", name, age);
+    return 0;
+}
+    </code></pre>
+    <h3>Output</h3>
+    <div class="output">
+      Enter your name: Alice<br>
+      Enter your age: 25<br>
+      Hello, Alice<br>
+      You are 25 years old.
+    </div>
+  </div>
+
+  <div class="lang-card">
+    <h2>JavaScript</h2>
+    <h3>Input</h3>
+    <pre><code>
+let name = prompt("Enter your name:");
+
+let age;
+while (true) {
+    let ageInput = prompt("Enter your age:");
+    age = parseInt(ageInput);
+    if (!isNaN(age)) {
+        break;
+    } else {
+        alert("Please enter a valid number for age.");
+    }
+}
+
+alert(`Hello, ${name}! You are ${age} years old.`);
+console.log(`Hello, ${name}! You are ${age} years old.`);
+    </code></pre>
+    <h3>Output</h3>
+    <div class="output">
+      [Prompt]: Enter your name: Alice<br>
+      [Prompt]: Enter your age: twenty<br>
+      [Alert]: Please enter a valid number for age.<br>
+      [Prompt]: Enter your age: 25<br>
+      [Alert]: Hello, Alice! You are 25 years old.
+    </div>
+  </div>
+
+</body>
+</html>
